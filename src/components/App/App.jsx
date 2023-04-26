@@ -9,6 +9,7 @@ import { Filter } from 'components/Filter/Filter';
 export class App extends Component {
   state = {
     contacts: initialContacts,
+    // contacts: [],
     filter: '',
   };
 
@@ -34,6 +35,19 @@ export class App extends Component {
     });
   };
 
+  componentDidMount() {
+    const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
   render() {
     const {
       addContact,
@@ -42,7 +56,6 @@ export class App extends Component {
       state: { filter, contacts },
     } = this;
 
-    // const filterToLowerCase = filter.toLocaleLowerCase();
     const contactsToShow = contacts.filter(contact =>
       contact.name.toLocaleLowerCase().includes(filter)
     );
