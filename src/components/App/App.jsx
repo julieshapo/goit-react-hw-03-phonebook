@@ -5,6 +5,7 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import initialContacts from '../contacts.json';
 import { ContactsList } from 'components/ContactsList/ContactsList';
 import { Filter } from 'components/Filter/Filter';
+import nanoid from 'nanoid';
 
 export class App extends Component {
   state = {
@@ -13,15 +14,27 @@ export class App extends Component {
     filter: '',
   };
 
-  addContact = newName => {
-    if (this.state.contacts.find(contact => contact.name === newName.name)) {
-      alert(`${newName.name} is already in contacts.`);
+  addContact = (value, name) => {
+    if (this.state.contacts.find(contact => contact.name === name)) {
+      alert(`${name} is already in contacts.`);
       return;
+    } else {
+      const newContact = { ...value, id: nanoid() };
+      this.setState(prevState => ({
+        contacts: [...prevState.contacts, newContact],
+      }));
     }
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, newName],
-    }));
   };
+
+  // addContact = newName => {
+  //   if (this.state.contacts.find(contact => contact.name === newName.name)) {
+  //     alert(`${newName.name} is already in contacts.`);
+  //     return;
+  //   }
+  //   this.setState(prevState => ({
+  //     contacts: [...prevState.contacts, newContact],
+  //   }));
+  // };
 
   deleteContact = contactId => {
     this.setState(prevState => ({
