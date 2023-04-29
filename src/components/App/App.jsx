@@ -5,7 +5,7 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import initialContacts from '../contacts.json';
 import { ContactsList } from 'components/ContactsList/ContactsList';
 import { Filter } from 'components/Filter/Filter';
-import nanoid from 'nanoid';
+import { nanoid } from 'nanoid';
 
 export class App extends Component {
   state = {
@@ -26,7 +26,7 @@ export class App extends Component {
     }
   };
 
-  // addContact = newName => {
+  // addContact2 = newName => {
   //   if (this.state.contacts.find(contact => contact.name === newName.name)) {
   //     alert(`${newName.name} is already in contacts.`);
   //     return;
