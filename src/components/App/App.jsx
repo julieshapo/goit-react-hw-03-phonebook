@@ -14,12 +14,12 @@ export class App extends Component {
     filter: '',
   };
 
-  addContact = (value, newName) => {
+  addContact = (contact, newName) => {
     if (this.state.contacts.find(contact => contact.name === newName.name)) {
       alert(`${newName.name} is already in contacts.`);
       return;
     } else {
-      const newContact = { ...value, id: nanoid() };
+      const newContact = { ...contact, id: nanoid() };
       this.setState(prevState => ({
         contacts: [...prevState.contacts, newContact],
       }));
