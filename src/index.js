@@ -15,7 +15,7 @@ const theme = {
     red: 'orangeRed',
     lightBlue: '#14acdf',
     error: 'red',
-    blue: '#4d4dff',
+    orange: '#ff7628',
   },
 };
 
