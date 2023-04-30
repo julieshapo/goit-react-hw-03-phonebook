@@ -26,13 +26,13 @@ export class App extends Component {
     }
   };
 
-  // addContact2 = newName => {
+  // addContact = newName => {
   //   if (this.state.contacts.find(contact => contact.name === newName.name)) {
   //     alert(`${newName.name} is already in contacts.`);
   //     return;
   //   }
   //   this.setState(prevState => ({
-  //     contacts: [...prevState.contacts, newContact],
+  //     contacts: [...prevState.contacts, newName],
   //   }));
   // };
 

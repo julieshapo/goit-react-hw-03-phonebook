@@ -1,5 +1,5 @@
 import { Formik } from 'formik';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
 import {
   FormLabel,
@@ -33,7 +33,7 @@ export const ContactForm = ({ onAdd }) => {
         initialValues={{ name: '', number: '' }}
         validationSchema={ContactScheme}
         onSubmit={(values, actions) => {
-          onAdd({ ...values, id: nanoid() });
+          onAdd(values, values.name);
           actions.resetForm();
         }}
       >
